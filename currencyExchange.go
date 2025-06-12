@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -58,26 +59,38 @@ func main() {
 		fmt.Println("Good Evening!!!")
 	}
 
-	fmt.Print("Enter the amount : ")
-	_, errA := fmt.Scanln(&a)
+	ArgsStr := os.Args[1:]
+
+	val, errA := strconv.ParseFloat(ArgsStr[0], 64)
+	a = float32(val)
+	cur = ArgsStr[1]
+	tgt = ArgsStr[2]
+
 	if errA != nil {
 		fmt.Print("Invalid input")
 		os.Exit(0)
 	}
 
-	fmt.Print("Enter the currency : ")
-	_, errA = fmt.Scanln(&cur)
-	if errA != nil {
-		fmt.Print("Invalid input")
-		os.Exit(0)
-	}
-
-	fmt.Print("Enter the Target currency : ")
-	_, errA = fmt.Scanln(&tgt)
-	if errA != nil {
-		fmt.Print("Invalid input")
-		os.Exit(0)
-	}
+	//fmt.Print("Enter the amount : ")
+	//_, errA := fmt.Scanln(&a)
+	//if errA != nil {
+	//	fmt.Print("Invalid input")
+	//	os.Exit(0)
+	//}
+	//
+	//fmt.Print("Enter the currency : ")
+	//_, errA = fmt.Scanln(&cur)
+	//if errA != nil {
+	//	fmt.Print("Invalid input")
+	//	os.Exit(0)
+	//}
+	//
+	//fmt.Print("Enter the Target currency : ")
+	//_, errA = fmt.Scanln(&tgt)
+	//if errA != nil {
+	//	fmt.Print("Invalid input")
+	//	os.Exit(0)
+	//}
 
 	fmt.Printf("%.2f %s in %s is %.2f %s", a, cur, tgt, exchange(a, cur, tgt), tgt)
 
