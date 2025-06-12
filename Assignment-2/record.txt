@@ -1,0 +1,5 @@
+ [INFO] Server started
+[ERROR] Failed to connect to DB
+[WARNING] High memory usage
+[ERROR] Timeout occurred
+[INFO] Server restarted
