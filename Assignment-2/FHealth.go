@@ -20,15 +20,18 @@ func main() {
 	er := 0
 	war := 0
 
+	var strArr []string
+
 	defer file.Close()
 
 	Scanner := bufio.NewScanner(file)
 	Scanner.Split(bufio.ScanWords)
-	//for Scanner.Scan() {
-	//	fmt.Println(Scanner.Text())
-	//}
 	for Scanner.Scan() {
-		switch Scanner.Text() {
+		strArr = append(strArr, Scanner.Text())
+	}
+
+	for _, word := range strArr {
+		switch word {
 		case "[INFO]":
 			info += 1
 		case "[WARNING]":
