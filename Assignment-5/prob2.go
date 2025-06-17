@@ -29,14 +29,7 @@ func (RemoteLogger) Log(msg string) {
 func LogAll(log []Logger, message string) {
 
 	for _, l := range log {
-		switch l.(type) {
-		case ConsoleLogger:
-			l.Log(message)
-		case FileLogger:
-			l.Log(message)
-		case RemoteLogger:
-			l.Log(message)
-		}
+		l.Log(message)
 	}
 }
 
