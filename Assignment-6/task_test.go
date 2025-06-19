@@ -36,6 +36,7 @@ func Test(t *testing.T) {
 
 			if operation == 'c' {
 
+				//If the previous task is 'd' then the i value would have changed(line number:49), so increment it back
 				if i != 0 && T.step[i-1] == 'd' {
 					i++
 				}
@@ -47,6 +48,7 @@ func Test(t *testing.T) {
 			if operation == 'd' {
 				i = i - 1
 				deleteTask(i)
+				//Better not to increment here, because if the next operation is 'd' then it will delete the same id as of now
 			}
 		}
 
